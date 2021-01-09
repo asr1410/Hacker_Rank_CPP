@@ -1,49 +1,47 @@
-//Operator Overloading
-
 #include <iostream>
-
+#include <bits/stdc++.h>
+#include <cmath>
+#include <string>
+#include <cstdio>
+#include <algorithm>
 using namespace std;
 
 class Complex
 {
+private:
+    int real, imag;
+
 public:
-    int a, b;
-    void input(string s)
+    Complex()
     {
-        int v1 = 0;
-        int i = 0;
-        while (s[i] != '+')
-        {
-            v1 = v1 * 10 + s[i] - '0';
-            i++;
-        }
-        while (s[i] == ' ' || s[i] == '+' || s[i] == 'i')
-        {
-            i++;
-        }
-        int v2 = 0;
-        while (i < s.length())
-        {
-            v2 = v2 * 10 + s[i] - '0';
-            i++;
-        }
-        a = v1;
-        b = v2;
+        real = 0;
+        imag = 0;
+    }
+    Complex(int r, int i)
+    {
+        real = r;
+        imag = i;
+    }
+    void print()
+    {
+        cout << real << " + " << imag << " i " << endl;
+    }
+    //operator overloading syntax
+    Complex operator+(Complex c)
+    {
+        Complex temp;
+        temp.real = real + c.real;
+        temp.imag = imag + c.imag;
+        return temp;
     }
 };
 
-//Overload operators + and << for the class complex
-//+ should add two complex numbers as (a+ib) + (c+id) = (a+c) + i(b+d)
-//<< should print a complex number in the format "a+ib"
-
 int main()
 {
-    Complex x, y;
-    string s1, s2;
-    cin >> s1;
-    cin >> s2;
-    x.input(s1);
-    y.input(s2);
-    Complex z = x + y;
-    cout << z << endl;
+    Complex c1(5, 4);
+    Complex c2(2, 5);
+    Complex c3;
+    c3 = c1 + c2;
+    c3.print();
+    return 0;
 }
