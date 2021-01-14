@@ -18,7 +18,8 @@ int main()
         cin >> value;
         v1.push_back(value);
     }
-    sort(v1.begin(), v1.end()); //auto sortdone in decrease order
+    sort(v1);
+    // sort(v1.begin(), v1.end()); //auto sortdone in decrease order
     // sort(v1.begin(), v1.end(), greater<int>()); //for sort in decrese order
     // for (int i = 0; i < v1.size(); i++)
     // {
